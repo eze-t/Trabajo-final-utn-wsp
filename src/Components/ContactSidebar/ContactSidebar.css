@@ -1,4 +1,12 @@
-.aside-dark{
-    background-color: black;
-    color: white;
+.last-message {
+    font-size: 13px;
+    color: #8696a0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+
+    .last-time {
+    font-size: 11px;
+    color: #8696a0;
 }

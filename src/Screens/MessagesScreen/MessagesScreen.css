@@ -1,0 +1,135 @@
+/* CONTENEDOR GENERAL */
+.messages-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #0b141a;
+    }
+
+    /* ===== HEADER DEL CHAT ===== */
+    .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background-color: #202c33;
+    color: #e9edef;
+    border-bottom: 1px solid #2a3942;
+    }
+
+    .chat-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    }
+
+    /* BOTÓN VOLVER */
+    .back-button {
+    display: none;
+    background: none;
+    border: none;
+    color: #e9edef;
+    font-size: 20px;
+    cursor: pointer;
+    }
+
+    /* ===== LISTA DE MENSAJES ===== */
+    .messages-list {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    }
+
+    /* MENSAJE */
+    .message {
+    max-width: 75%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    }
+
+    /* MENSAJE ENVIADO */
+    .message.sent {
+    align-self: flex-end;
+    background-color: #005c4b;
+    color: #e9edef;
+    }
+
+    /* MENSAJE RECIBIDO */
+    .message.received {
+    align-self: flex-start;
+    background-color: #202c33;
+    color: #e9edef;
+    }
+
+    /* ===== INPUT DEL CHAT ===== */
+    .chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background-color: #202c33;
+    border-top: 1px solid #2a3942;
+    }
+
+    .chat-input input {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: #2a3942;
+    color: #e9edef;
+    font-size: 14px;
+    }
+
+    .chat-input input::placeholder {
+    color: #8696a0;
+    }
+
+    .chat-input button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00a884;
+    color: #111b21;
+    font-weight: 500;
+    cursor: pointer;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+
+    /* Mostrar botón volver solo en mobile */
+    .back-button {
+        display: block;
+    }
+
+    .messages-list {
+        padding: 10px;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+    }
+
+    /* ===== MOBILE CHICO (320px) ===== */
+    @media (max-width: 360px) {
+    .chat-header h2 {
+        font-size: 14px;
+    }
+
+    .chat-input input {
+        font-size: 13px;
+    }
+
+    .chat-input button {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
