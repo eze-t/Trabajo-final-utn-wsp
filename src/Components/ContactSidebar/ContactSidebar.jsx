@@ -3,38 +3,31 @@ Snippet para crear un componente de react
 RFC = React Functional Component
 */
 
+/* 
+Snippet para crear un componente de react
+RFC = React Functional Component
+*/
 
-import React, { useContext } from 'react'
-import { MessagesContext } from '../../Context/MessagesContext'
-import { ContactListContext } from '../../Context/ContactListContext'
+
+import './ContactSidebar.css'
+import { useContext} from 'react'
+import ContactSearchForm from '../ContactSearchForm/ContactSearchForm'
+import ContactList from '../ContactList/ContactList'
+import { ThemeContext } from '../../Context/ThemeContext'
 
 export default function ContactSidebar() {
 
-    const { contactList } = useContext(ContactListContext)
-    const { messagesByContact } = useContext(MessagesContext)
 
+    
+    const {isDark, toggleTheme} = useContext(ThemeContext)
     return (
-        <aside>
-        {
-            contactList.map(contact => {
-            const messages = messagesByContact[contact.id] || []
-            const lastMessage = messages[messages.length - 1]
-
-            return (
-                <div key={contact.id}>
-                <h3>{contact.contact_name}</h3>
-
-                <p className="last-message">
-                    {lastMessage ? lastMessage.text : 'Sin mensajes'}
-                </p>
-
-                <span className="last-time">
-                    {lastMessage?.timestamp}
-                </span>
-                </div>
-            )
-            })
-        }
+        <aside className={`aside ` + (isDark ? 'aside-dark' : '')}>
+            <button onClick={toggleTheme}>Cambiar tema</button>
+            <div>
+                <ContactSearchForm/>
+                <a>Crear contacto</a>
+            </div>
+            <ContactList/>
         </aside>
     )
 }
